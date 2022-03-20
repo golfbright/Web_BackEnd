@@ -409,3 +409,5 @@ D:\Projects\TMSAPI\TMSAPI\obj\Debug\netcoreapp3.1\TMSAPI.csproj.CopyComplete
 D:\Projects\TMSAPI\TMSAPI\obj\Debug\netcoreapp3.1\TMSAPI.dll
 D:\Projects\TMSAPI\TMSAPI\obj\Debug\netcoreapp3.1\TMSAPI.pdb
 D:\Projects\TMSAPI\TMSAPI\obj\Debug\netcoreapp3.1\TMSAPI.genruntimeconfig.cache
+D:\TMS\BackEnd\Web_BackEnd\obj\Debug\netcoreapp3.1\TMSAPI.dll
+D:\TMS\BackEnd\Web_BackEnd\obj\Debug\netcoreapp3.1\TMSAPI.pdb

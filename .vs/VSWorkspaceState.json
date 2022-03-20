@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Queries"
   ],
-  "SelectedNode": "\\TMSAPI.csproj.user",
+  "SelectedNode": "\\Queries\\ITMSQueries.cs",
   "PreviewInSolutionExplorer": false
 }
