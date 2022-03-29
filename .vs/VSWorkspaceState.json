@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
+    "\\Controllers",
     "\\Queries"
   ],
-  "SelectedNode": "\\Queries\\ITMSQueries.cs",
+  "SelectedNode": "\\Controllers\\AccountRolesController.cs",
   "PreviewInSolutionExplorer": false
 }
