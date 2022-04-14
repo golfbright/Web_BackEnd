@@ -15,5 +15,6 @@ namespace TMSAPI.Commands.TaskCommand
         public string TaskStatus { get; set; }
         public int AddressId { get; set; }
         public int VehicleId { get; set; }
+        public int AccountId { get; set; }
     }
 }

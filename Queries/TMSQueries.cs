@@ -398,5 +398,22 @@ namespace TMSAPI.Queries
             }
         }
 
+        //=============================================Mobile=============================================
+        public async Task<IEnumerable<TaskListViewModel>> GetAllTaskListAndAllDetailAsync()
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                var query = @"select a.*,b.NamePlace,b.Gps,b.AddressNumber,b.District,b.Country,b.Street,b.ZipCode,b.Province,c.VehicleType,c.VehicleBrand,c.VehiclePlate,c.VehicleStatus from TaskList a 
+                              LEFT JOIN Address b ON b.id = a.AddressId
+                              LEFT JOIN Vehicle c ON c.id = a.VehicleId
+                              WHERE a.TaskStatus = N'ยังไม่ได้ดำเนินการ'  and a.AccountId = 0 ";
+
+                var result = await connection.QueryAsync<TaskListViewModel>(query);
+
+                return result;
+            }
+        }
     }
 }

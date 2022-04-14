@@ -37,6 +37,20 @@ namespace TMSAPI.Queries
         public string TaskStatus { get; set; }
         public int AddressId { get; set; }
         public int VehicleId { get; set; }
+        public string NamePlace { get; set; }
+        public string Gps { get; set; }
+        public string AddressNumber { get; set; }
+        public string District { get; set; }
+        public string Country { get; set; }
+        public string Street { get; set; }
+        public string ZipCode { get; set; }
+        public string Province { get; set; }
+        public string VehicleType { get; set; }
+        public string VehicleBrand { get; set; }
+        public string VehiclePlate { get; set; }
+        public string VehicleStatus { get; set; }
+        public string AccountId { get; set; }
+
         //public List<TransportViewModel> Transport { get; set; }
     }
     public class TransportViewModel

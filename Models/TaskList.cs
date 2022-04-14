@@ -5,7 +5,7 @@ namespace TMSAPI.Models
 {
     public partial class TaskList
     {
-        public TaskList(string taskDetail, string taskNumber, DateTime taskStartDate, DateTime taskFinishDate, string taskStatus, int addressId, int vehicleId)
+        public TaskList(string taskDetail, string taskNumber, DateTime taskStartDate, DateTime taskFinishDate, string taskStatus, int addressId, int vehicleId,int accountId)
         {
             TaskDetail = taskDetail;
             TaskNumber = taskNumber;
@@ -15,9 +15,10 @@ namespace TMSAPI.Models
             TaskStatus = taskStatus;
             AddressId = addressId;
             VehicleId = vehicleId;
+            AccountId = accountId;
         }
 
-        public void Update(string taskDetail, string taskNumber, DateTime taskStartDate, DateTime taskFinishDate, string taskStatus, int addressId, int vehicleId)
+        public void Update(string taskDetail, string taskNumber, DateTime taskStartDate, DateTime taskFinishDate, string taskStatus, int addressId, int vehicleId, int accountId)
         {
             TaskDetail = taskDetail;
             TaskNumber = taskNumber;
@@ -27,6 +28,7 @@ namespace TMSAPI.Models
             TaskStatus = taskStatus;
             AddressId = addressId;
             VehicleId = vehicleId;
+            AccountId = accountId;
         }
 
         public int Id { get; set; }
@@ -38,5 +40,6 @@ namespace TMSAPI.Models
         public string TaskStatus { get; set; }
         public int AddressId { get; set; }
         public int VehicleId { get; set; }
+        public int AccountId { get; set; }
     }
 }

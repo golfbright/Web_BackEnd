@@ -21,5 +21,9 @@ namespace TMSAPI.Queries
         Task<IEnumerable<TaskListViewModel>> GettaskListById(int taskListId);
         Task<IEnumerable<AddressViewModel>> GetaddressById(int addressId);
         Task<IEnumerable<VehicleViewModel>> GetvehicleById(int vehicleId);
+
+        //=============================================Mobile=============================================
+        Task<IEnumerable<TaskListViewModel>> GetAllTaskListAndAllDetailAsync();
+
     }
 }

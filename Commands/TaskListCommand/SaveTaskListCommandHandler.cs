@@ -37,11 +37,11 @@ namespace TMSAPI.Commands.TaskCommand
         }
         private TaskList AddNewTaskList(SaveTaskListCommand cmd, string TaskNumber)
         {
-            return new TaskList(cmd.TaskDetail, TaskNumber, cmd.TaskStartDate, cmd.TaskFinishDate, cmd.TaskStatus, cmd.AddressId, cmd.VehicleId);
+            return new TaskList(cmd.TaskDetail, TaskNumber, cmd.TaskStartDate, cmd.TaskFinishDate, cmd.TaskStatus, cmd.AddressId, cmd.VehicleId,cmd.AccountId);
         }
         private void UpdateTaskList(TaskList taskList, SaveTaskListCommand cmd)
         {
-            taskList.Update(cmd.TaskDetail, cmd.TaskNumber, cmd.TaskStartDate, cmd.TaskFinishDate, cmd.TaskStatus, cmd.AddressId, cmd.VehicleId);
+            taskList.Update(cmd.TaskDetail, cmd.TaskNumber, cmd.TaskStartDate, cmd.TaskFinishDate, cmd.TaskStatus, cmd.AddressId, cmd.VehicleId, cmd.AccountId);
         }
     }
 }

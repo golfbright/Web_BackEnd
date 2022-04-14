@@ -114,5 +114,13 @@ namespace TMSAPI.Controllers
         {
             return _context.TaskList.Any(e => e.Id == id);
         }
+
+        //=============================================Mobile=============================================
+        [HttpGet("tasklist")]
+        public async Task<IActionResult> GetAllTaskListAndAllDetailAsync()
+        {
+            var result = await _TMSQueries.GetAllTaskListAndAllDetailAsync();
+            return Ok(result);
+        }
     }
 }
