@@ -24,7 +24,7 @@ namespace TMSAPI.Queries
 
         //=============================================Mobile=============================================
         Task<IEnumerable<TaskListViewModel>> GetAllTaskListAndAllDetailAsync();
-        Task<IEnumerable<TaskListViewModel>> GetAllTaskListForBooked(int accountId);
-
+        Task<IEnumerable<TaskListViewModel>> GetAllTaskListAndAllDetailBookedAsync(int accountId);
+        Task<List<AccountViewModel>> GetAccountListActiveAsync();
     }
 }

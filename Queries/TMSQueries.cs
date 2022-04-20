@@ -416,7 +416,7 @@ namespace TMSAPI.Queries
             }
         }
 
-        public async Task<IEnumerable<TaskListViewModel>> GetAllTaskListForBooked(int accountId)
+        public async Task<IEnumerable<TaskListViewModel>> GetAllTaskListAndAllDetailBookedAsync(int accountId)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
@@ -427,9 +427,23 @@ namespace TMSAPI.Queries
                               LEFT JOIN Vehicle c ON c.id = a.VehicleId
                               WHERE a.TaskStatus = N'ได้รับการจอง'  and a.AccountId = @accountId ";
 
-                var result = await connection.QueryAsync<TaskListViewModel>(query,new { accountId });
+                var result = await connection.QueryAsync<TaskListViewModel>(query, new { accountId });
 
                 return result;
+            }
+        }
+        public async Task<List<AccountViewModel>> GetAccountListActiveAsync()
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                var query = @"select * from Account where Status = 'Active'";
+
+                var result = await connection.QueryAsync<dynamic>(query);
+
+
+                return MapAccountForGet(result);
             }
         }
     }

@@ -162,8 +162,16 @@ namespace TMSAPI.Controllers
 
             return Ok(account);
         }
-        
 
+        [HttpGet("activeAccount")]
+        public async Task<IActionResult> GetAccountListActive()
+        {
+            //var result = await _TMSQueries.GetAccountListAsync();
+            //var result = await _TMSQueries.GetAccountListMapAsync();
+            var result = await _TMSQueries.GetAccountListActiveAsync();
+
+            return Ok(result);
+        }
 
     }
 }
