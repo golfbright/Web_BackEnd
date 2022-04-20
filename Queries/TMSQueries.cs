@@ -415,5 +415,22 @@ namespace TMSAPI.Queries
                 return result;
             }
         }
+
+        public async Task<IEnumerable<TaskListViewModel>> GetAllTaskListForBooked(string accountId)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                var query = @"select a.*,b.NamePlace,b.Gps,b.AddressNumber,b.District,b.Country,b.Street,b.ZipCode,b.Province,c.VehicleType,c.VehicleBrand,c.VehiclePlate,c.VehicleStatus from TaskList a 
+                              LEFT JOIN Address b ON b.id = a.AddressId
+                              LEFT JOIN Vehicle c ON c.id = a.VehicleId
+                              WHERE a.TaskStatus = N'ได้รับการจอง'  and a.AccountId = @accountId ";
+
+                var result = await connection.QueryAsync<TaskListViewModel>(query,new { accountId });
+
+                return result;
+            }
+        }
     }
 }
