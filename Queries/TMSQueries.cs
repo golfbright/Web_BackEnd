@@ -432,5 +432,19 @@ namespace TMSAPI.Queries
                 return result;
             }
         }
+        public async Task<List<AccountViewModel>> GetAccountListActiveAsync()
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                var query = @"select * from Account where Status = 'Active'";
+
+                var result = await connection.QueryAsync<dynamic>(query);
+
+
+                return MapAccountForGet(result);
+            }
+        }
     }
 }
