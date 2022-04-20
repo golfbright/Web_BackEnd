@@ -122,5 +122,12 @@ namespace TMSAPI.Controllers
             var result = await _TMSQueries.GetAllTaskListAndAllDetailAsync();
             return Ok(result);
         }
+
+        [HttpGet("tasklist/{accountId}")]
+        public async Task<IActionResult> GetAllTaskListForBooked(int accountId)
+        {
+            var result = await _TMSQueries.GetAllTaskListForBooked(accountId);
+            return Ok(result);
+        }
     }
 }

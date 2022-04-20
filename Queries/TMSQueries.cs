@@ -416,7 +416,7 @@ namespace TMSAPI.Queries
             }
         }
 
-        public async Task<IEnumerable<TaskListViewModel>> GetAllTaskListForBooked(string accountId)
+        public async Task<IEnumerable<TaskListViewModel>> GetAllTaskListForBooked(int accountId)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
