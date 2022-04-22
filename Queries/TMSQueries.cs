@@ -416,18 +416,38 @@ namespace TMSAPI.Queries
             }
         }
 
-        public async Task<IEnumerable<TaskListViewModel>> GetAllTaskListAndAllDetailBookedAsync(int accountId)
+        public async Task<IEnumerable<TaskListViewModel>> GetTaskListAndAllDetailBookedAsync(int accountId)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
 
-                var query = @"select a.*,b.NamePlace,b.Gps,b.AddressNumber,b.District,b.Country,b.Street,b.ZipCode,b.Province,c.VehicleType,c.VehicleBrand,c.VehiclePlate,c.VehicleStatus from TaskList a 
+                var query = @"select a.*,b.NamePlace,b.Gps,b.AddressNumber,b.District,b.Country,b.Street,b.ZipCode,b.Province,c.VehicleType,c.VehicleBrand,c.VehiclePlate,c.VehicleStatus,
+							  d.EmployeeNo,d.FirstName,d.LastName,d.Tel,d.ImageProfilePath from TaskList a 
                               LEFT JOIN Address b ON b.id = a.AddressId
                               LEFT JOIN Vehicle c ON c.id = a.VehicleId
-                              WHERE a.TaskStatus = N'ได้รับการจอง'  and a.AccountId = @accountId ";
+							  LEFT JOIN Account d ON d.Id = a.AccountId
+							  WHERE a.TaskStatus = N'ได้รับการจอง'  and a.AccountId = @accountId ";
 
                 var result = await connection.QueryAsync<TaskListViewModel>(query, new { accountId });
+
+                return result;
+            }
+        }
+        public async Task<IEnumerable<TaskListViewModel>> GetAllTaskListAndAllDetailBookedAsync()
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                var query = @"select a.*,b.NamePlace,b.Gps,b.AddressNumber,b.District,b.Country,b.Street,b.ZipCode,b.Province,c.VehicleType,c.VehicleBrand,c.VehiclePlate,c.VehicleStatus,
+							  d.EmployeeNo,d.FirstName,d.LastName,d.Tel,d.ImageProfilePath from TaskList a 
+                              LEFT JOIN Address b ON b.id = a.AddressId
+                              LEFT JOIN Vehicle c ON c.id = a.VehicleId
+							  LEFT JOIN Account d ON d.Id = a.AccountId
+							  WHERE a.TaskStatus = N'ได้รับการจอง' ";
+
+                var result = await connection.QueryAsync<TaskListViewModel>(query);
 
                 return result;
             }
@@ -444,6 +464,43 @@ namespace TMSAPI.Queries
 
 
                 return MapAccountForGet(result);
+            }
+        }
+
+        public async Task<IEnumerable<TaskListViewModel>> GetAllTaskListAndAllDetailInPorgressAsync()
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                var query = @"select a.*,b.NamePlace,b.Gps,b.AddressNumber,b.District,b.Country,b.Street,b.ZipCode,b.Province,c.VehicleType,c.VehicleBrand,c.VehiclePlate,c.VehicleStatus,
+							  d.EmployeeNo,d.FirstName,d.LastName,d.Tel,d.ImageProfilePath from TaskList a 
+                              LEFT JOIN Address b ON b.id = a.AddressId
+                              LEFT JOIN Vehicle c ON c.id = a.VehicleId
+							  LEFT JOIN Account d ON d.Id = a.AccountId
+                              WHERE a.TaskStatus = N'ดำเนินการอยู่'";
+
+                var result = await connection.QueryAsync<TaskListViewModel>(query);
+
+                return result;
+            }
+        }
+        public async Task<IEnumerable<TaskListViewModel>> GetTaskListAndAllDetailInPorgressAsync(int accountId)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                var query = @"select a.*,b.NamePlace,b.Gps,b.AddressNumber,b.District,b.Country,b.Street,b.ZipCode,b.Province,c.VehicleType,c.VehicleBrand,c.VehiclePlate,c.VehicleStatus,
+							  d.EmployeeNo,d.FirstName,d.LastName,d.Tel,d.ImageProfilePath from TaskList a 
+                              LEFT JOIN Address b ON b.id = a.AddressId
+                              LEFT JOIN Vehicle c ON c.id = a.VehicleId
+							  LEFT JOIN Account d ON d.Id = a.AccountId
+                              WHERE a.TaskStatus = N'ดำเนินการอยู่'  and a.AccountId = @accountId ";
+
+                var result = await connection.QueryAsync<TaskListViewModel>(query, new { accountId });
+
+                return result;
             }
         }
     }

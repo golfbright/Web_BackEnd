@@ -123,11 +123,28 @@ namespace TMSAPI.Controllers
             return Ok(result);
         }
         [HttpGet("tasklist/{accountId}")]
-        public async Task<IActionResult> GetAllTaskListAndAllDetailBookedAsync(int accountId)
+        public async Task<IActionResult> GetTaskListAndAllDetailBookedAsync(int accountId)
         {
-            var result = await _TMSQueries.GetAllTaskListAndAllDetailBookedAsync(accountId);
+            var result = await _TMSQueries.GetTaskListAndAllDetailBookedAsync(accountId);
             return Ok(result);
         }
-        
+        [HttpGet("tasklistBooked")]
+        public async Task<IActionResult> GetAllTaskListAndAllDetailBookedAsync()
+        {
+            var result = await _TMSQueries.GetAllTaskListAndAllDetailBookedAsync();
+            return Ok(result);
+        }
+        [HttpGet("tasklisProgress")]
+        public async Task<IActionResult> GetAllTaskListAndAllDetailProgressAsync()
+        {
+            var result = await _TMSQueries.GetAllTaskListAndAllDetailInPorgressAsync();
+            return Ok(result);
+        }
+        [HttpGet("tasklisProgress/{accountId}")]
+        public async Task<IActionResult> GetTaskListAndAllDetailProgressAsync(int accountId)
+        {
+            var result = await _TMSQueries.GetTaskListAndAllDetailInPorgressAsync(accountId);
+            return Ok(result);
+        }
     }
 }
