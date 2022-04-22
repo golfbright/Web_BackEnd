@@ -446,5 +446,19 @@ namespace TMSAPI.Queries
                 return MapAccountForGet(result);
             }
         }
+
+        public async Task<IEnumerable<TaskListViewModel>> GetTaskListByTaskNumber(string taskNumber)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                var query = @"Select * From TaskList a WHERE a.TaskNumber = @taskNumber ";
+
+                var result = await connection.QueryAsync<TaskListViewModel>(query, new { taskNumber });
+
+                return result;
+            }
+        }
     }
 }

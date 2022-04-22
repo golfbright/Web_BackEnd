@@ -49,7 +49,7 @@ namespace TMSAPI.Queries
         public string VehicleBrand { get; set; }
         public string VehiclePlate { get; set; }
         public string VehicleStatus { get; set; }
-        public string AccountId { get; set; }
+        public int AccountId { get; set; }
 
         //public List<TransportViewModel> Transport { get; set; }
     }

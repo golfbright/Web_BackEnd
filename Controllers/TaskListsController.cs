@@ -68,7 +68,7 @@ namespace TMSAPI.Controllers
 
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Models.TaskList>> DeleteTaskList(int id)
+        public async Task<ActionResult<TaskList>> DeleteTaskList(int id)
         {
             var taskList = await _context.TaskList.FindAsync(id);
             if (taskList == null)
@@ -128,6 +128,13 @@ namespace TMSAPI.Controllers
             var result = await _TMSQueries.GetAllTaskListAndAllDetailBookedAsync(accountId);
             return Ok(result);
         }
-        
+
+        [HttpGet("tasklistbytasknumber/{taskNumber}")]
+        public async Task<IActionResult> GetTaskListByTaskNumber(string taskNumber)
+        {
+            var result = await _TMSQueries.GetTaskListByTaskNumber(taskNumber);
+            return Ok(result);
+        }
+
     }
 }
