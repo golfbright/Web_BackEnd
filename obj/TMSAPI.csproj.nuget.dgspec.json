@@ -1,21 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "E:\\ProjectTMS\\GitTest\\Web_BackEnd\\TMSAPI.csproj": {}
+    "D:\\TMS\\BackEnd\\Web_BackEnd\\TMSAPI.csproj": {}
   },
   "projects": {
-    "E:\\ProjectTMS\\GitTest\\Web_BackEnd\\TMSAPI.csproj": {
+    "D:\\TMS\\BackEnd\\Web_BackEnd\\TMSAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\ProjectTMS\\GitTest\\Web_BackEnd\\TMSAPI.csproj",
+        "projectUniqueName": "D:\\TMS\\BackEnd\\Web_BackEnd\\TMSAPI.csproj",
         "projectName": "TMSAPI",
-        "projectPath": "E:\\ProjectTMS\\GitTest\\Web_BackEnd\\TMSAPI.csproj",
-        "packagesPath": "C:\\Users\\brigh\\.nuget\\packages\\",
-        "outputPath": "E:\\ProjectTMS\\GitTest\\Web_BackEnd\\obj\\",
+        "projectPath": "D:\\TMS\\BackEnd\\Web_BackEnd\\TMSAPI.csproj",
+        "packagesPath": "C:\\Users\\kitti\\.nuget\\packages\\",
+        "outputPath": "D:\\TMS\\BackEnd\\Web_BackEnd\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\brigh\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\kitti\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -101,7 +107,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
